@@ -12,7 +12,7 @@ def billboards_list(request):
 
 def billboards_detail(request,pk):
     billboard = get_object_or_404(Billboard, pk=pk)
-    return render(request, 'billboard/billboards_detail.html', {'billboard': billboard,'is_admin_panel':True})
+    return render(request, 'billboard/billboards_detail.html', {'billboard': billboard})
 
 def billboard_new(request):
     if request.method == "POST":

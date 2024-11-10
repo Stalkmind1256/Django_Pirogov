@@ -1,0 +1,36 @@
+{% extends 'billboard/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Список объявлений</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Заголовок</th>
+                <th>Текст</th>
+                <th>Дата создания</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for billboard in billboards %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ billboard.title }}</td>
+                    <td>{{ billboard.text }}</td>
+                    <td>{{ billboard.created_date }}</td>
+                    <td>
+                        <a href="{% url 'billboard_edit' billboard.id %}" class="btn btn-warning btn-sm">Изменить</a>
+                        <a href="{% url 'billboard_delete' billboard.id %}" class="btn btn-danger btn-sm">Удалить</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Нет доступных объявлений</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
