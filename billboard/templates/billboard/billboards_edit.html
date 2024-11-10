@@ -1,0 +1,9 @@
+{% extends 'billboard/base.html' %}
+
+{% block content %}
+    <h1>Новое объявление</h1>
+    <form method="post" class="billboard-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Сохранить</button>
+    </form>
+{% endblock %}

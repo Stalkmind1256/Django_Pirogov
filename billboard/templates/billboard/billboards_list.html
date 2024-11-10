@@ -1,0 +1,13 @@
+{% extends 'billboard/base.html' %}
+
+{% block content %}
+    {% for billboard in billboards %}
+        <div class="billboard">
+            <h1><a href="{% url 'billboards_detail' pk=billboard.pk %}">{{ billboard.title }}</a></h1>
+            <p>{{ billboard.text|linebreaksbr }}</p>
+            <div class="date">
+                <p>Опубликовано: {{ billboard.created_date }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

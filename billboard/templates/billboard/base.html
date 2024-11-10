@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/billboard.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Доска объявлений</title>
+</head>
+<body>
+    <div class="page-header">
+        <h1>
+            {% if is_admin_panel %}
+                <a href="{% url 'admin_panel' %}">Панель администратора</a>
+            {% else %}
+                <a href="/">Объявления</a >
+            {% endif %}
+        </h1>
+        <div class="icon-container">
+            {% if is_admin_panel %}
+                <a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+            {% else %}
+                <a href="{% url 'admin_panel' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+    <div class="row">
+        <div class="col-5">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

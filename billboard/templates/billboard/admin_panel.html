@@ -1,0 +1,13 @@
+{% extends 'billboard/base.html' %}
+
+{% block content %}
+<div class="admin_panel">
+    <p>Добро пожаловать в панель администратора. Здесь вы можете управлять объявлениями и пользователями.</p>
+    <div class="button-group">
+        <a href="{% url 'billboard_new'%}" class="btn btn-success">Добавить Объявление</a>
+        <a href="{% url 'billboards_list'%}" class="btn btn-warning">Изменить Объявление</a>
+        <button type="button" class="btn btn-danger">Удалить Объявление</button>
+    </div>
+</div>
+
+{% endblock %}

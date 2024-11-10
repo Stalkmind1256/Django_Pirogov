@@ -1,0 +1,14 @@
+{% extends 'billboard/base.html' %}
+
+{% block content %}
+    <div class="billboard">
+      {% if billboard.published_date %}
+            <div class="date">
+                {{ billboard.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'billboards_edit' pk=billboard.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ billboard.title }}</h1>
+        <p>{{ billboard.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}
