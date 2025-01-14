@@ -1,9 +1,13 @@
 {% extends 'billboard/base.html' %}
 
 {% block content %}
-    <h1>Новое объявление</h1>
-    <form method="post" class="billboard-form">{% csrf_token %}
+<div class="container mt-4">
+    <h2>Редактировать объявление</h2>
+    <form method="post">
+        {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Сохранить</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="{% url 'billboards_list' %}" class="btn btn-secondary">Отмена</a>
     </form>
+</div>
 {% endblock %}
